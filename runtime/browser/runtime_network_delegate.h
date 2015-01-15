@@ -9,11 +9,11 @@
 
 #include "base/basictypes.h"
 #include "base/compiler_specific.h"
-#include "net/base/network_delegate.h"
+#include "net/base/network_delegate_impl.h"
 
 namespace xwalk {
 
-class RuntimeNetworkDelegate : public net::NetworkDelegate {
+class RuntimeNetworkDelegate : public net::NetworkDelegateImpl {
  public:
   RuntimeNetworkDelegate();
   virtual ~RuntimeNetworkDelegate();
