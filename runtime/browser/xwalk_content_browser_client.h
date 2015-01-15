@@ -92,7 +92,7 @@ class XWalkContentBrowserClient : public content::ContentBrowserClient {
       content::CertificateRequestResultType* result) override;
 
   content::SpeechRecognitionManagerDelegate*
-      GetSpeechRecognitionManagerDelegate() override;
+      CreateSpeechRecognitionManagerDelegate() override;
 
   blink::WebNotificationPermission
   CheckDesktopNotificationPermission(

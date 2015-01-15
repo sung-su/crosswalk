@@ -393,7 +393,7 @@ void XWalkContentBrowserClient::ResourceDispatcherHostCreated() {
 #endif
 
 content::SpeechRecognitionManagerDelegate*
-    XWalkContentBrowserClient::GetSpeechRecognitionManagerDelegate() {
+    XWalkContentBrowserClient::CreateSpeechRecognitionManagerDelegate() {
   return new xwalk::XWalkSpeechRecognitionManagerDelegate();
 }
 
