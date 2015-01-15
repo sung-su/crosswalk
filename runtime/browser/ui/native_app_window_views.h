@@ -8,8 +8,8 @@
 #include <string>
 
 #include "xwalk/runtime/browser/ui/native_app_window.h"
+#include "ui/gfx/geometry/rect.h"
 #include "ui/gfx/image/image_skia.h"
-#include "ui/gfx/rect.h"
 #include "ui/views/widget/widget_delegate.h"
 #include "ui/views/widget/widget_observer.h"
 
