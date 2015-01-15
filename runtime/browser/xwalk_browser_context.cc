@@ -100,6 +100,12 @@ void XWalkBrowserContext::InitWhileIOAllowed() {
   }
 }
 
+scoped_ptr<content::ZoomLevelDelegate>
+XWalkBrowserContext::CreateZoomLevelDelegate(
+    const base::FilePath& partition_path) {
+  return nullptr;
+}
+
 base::FilePath XWalkBrowserContext::GetPath() const {
   base::FilePath result;
 #if defined(OS_ANDROID)

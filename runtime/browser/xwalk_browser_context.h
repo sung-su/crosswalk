@@ -55,6 +55,8 @@ class XWalkBrowserContext
       content::WebContents* web_contents);
 
   // BrowserContext implementation.
+  scoped_ptr<content::ZoomLevelDelegate> CreateZoomLevelDelegate(
+      const base::FilePath& partition_path) override;
   base::FilePath GetPath() const override;
   bool IsOffTheRecord() const override;
   content::DownloadManagerDelegate* GetDownloadManagerDelegate() override;
