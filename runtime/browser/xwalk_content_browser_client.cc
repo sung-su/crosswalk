@@ -23,7 +23,6 @@
 #include "content/public/browser/storage_partition.h"
 #include "content/public/browser/web_contents.h"
 #include "content/public/common/main_function_params.h"
-#include "content/public/common/show_desktop_notification_params.h"
 #include "net/ssl/ssl_info.h"
 #include "net/url_request/url_request_context_getter.h"
 #include "ppapi/host/ppapi_host.h"

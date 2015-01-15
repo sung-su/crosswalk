@@ -69,7 +69,7 @@ class XWalkContentsClientBridge : public XWalkContentsClientBridgeBase ,
       const content::JavaScriptDialogManager::DialogClosedCallback& callback)
       override;
   void ShowNotification(
-      const content::ShowDesktopNotificationHostMsgParams& params,
+      const content::PlatformNotificationData& notification_data,
       scoped_ptr<content::DesktopNotificationDelegate> delegate,
       base::Closure* cancel_callback)
       override;
