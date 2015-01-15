@@ -76,10 +76,9 @@ class XWalkAndroidDevToolsHttpHandlerDelegate
     return base::FilePath();
   }
 
-  scoped_ptr<net::StreamListenSocket> CreateSocketForTethering(
-      net::StreamListenSocket::Delegate* delegate,
+  scoped_ptr<net::ServerSocket> CreateSocketForTethering(
       std::string* name) override {
-    return scoped_ptr<net::StreamListenSocket>();
+    return scoped_ptr<net::ServerSocket>();
   }
  private:
   DISALLOW_COPY_AND_ASSIGN(XWalkAndroidDevToolsHttpHandlerDelegate);
