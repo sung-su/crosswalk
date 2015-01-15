@@ -160,9 +160,10 @@ void XWalkExtensionProcessHost::StartProcess() {
   std::string channel_id = process_->GetHost()->CreateChannel();
   CHECK(!channel_id.empty());
 
-  CommandLine::StringType extension_cmd_prefix;
+  base::CommandLine::StringType extension_cmd_prefix;
 #if defined(OS_POSIX)
-  const CommandLine &browser_command_line = *CommandLine::ForCurrentProcess();
+  const base::CommandLine &browser_command_line =
+      *base::CommandLine::ForCurrentProcess();
   extension_cmd_prefix = browser_command_line.GetSwitchValueNative(
       switches::kXWalkExtensionCmdPrefix);
 #endif
@@ -179,7 +180,7 @@ void XWalkExtensionProcessHost::StartProcess() {
   if (exe_path.empty())
     return;
 
-  scoped_ptr<CommandLine> cmd_line(new CommandLine(exe_path));
+  scoped_ptr<base::CommandLine> cmd_line(new base::CommandLine(exe_path));
   cmd_line->AppendSwitchASCII(switches::kProcessType,
                                 switches::kXWalkExtensionProcess);
   cmd_line->AppendSwitchASCII(switches::kProcessChannelID, channel_id);

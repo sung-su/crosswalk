@@ -91,7 +91,7 @@ XWalkBrowserContext* XWalkBrowserContext::FromWebContents(
 }
 
 void XWalkBrowserContext::InitWhileIOAllowed() {
-  CommandLine* cmd_line = CommandLine::ForCurrentProcess();
+  base::CommandLine* cmd_line = base::CommandLine::ForCurrentProcess();
   if (cmd_line->HasSwitch(switches::kXWalkDataPath)) {
     base::FilePath path =
         cmd_line->GetSwitchValuePath(switches::kXWalkDataPath);
@@ -104,7 +104,7 @@ base::FilePath XWalkBrowserContext::GetPath() const {
   base::FilePath result;
 #if defined(OS_ANDROID)
   CHECK(PathService::Get(base::DIR_ANDROID_APP_DATA, &result));
-  CommandLine* cmd_line = CommandLine::ForCurrentProcess();
+  base::CommandLine* cmd_line = base::CommandLine::ForCurrentProcess();
   if (cmd_line->HasSwitch(switches::kXWalkProfileName))
     result = result.Append(
         cmd_line->GetSwitchValuePath(switches::kXWalkProfileName));

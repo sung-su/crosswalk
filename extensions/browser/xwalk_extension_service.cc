@@ -244,7 +244,7 @@ void XWalkExtensionService::OnRenderProcessHostCreatedInternal(
   CreateInProcessExtensionServers(host, data, ui_thread_extensions,
                                   extension_thread_extensions);
 
-  CommandLine* cmd_line = CommandLine::ForCurrentProcess();
+  base::CommandLine* cmd_line = base::CommandLine::ForCurrentProcess();
   if (!cmd_line->HasSwitch(switches::kXWalkDisableExtensionProcess)) {
     CreateExtensionProcessHost(host, data, runtime_variables.Pass());
   } else if (!external_extensions_path_.empty()) {
