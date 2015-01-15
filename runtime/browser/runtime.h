@@ -111,8 +111,8 @@ class Runtime : public content::WebContentsDelegate,
                           content::WebContents* new_contents) override;
   void DidNavigateMainFramePostCommit(
       content::WebContents* web_contents) override;
-  content::JavaScriptDialogManager*
-      GetJavaScriptDialogManager() override;
+  content::JavaScriptDialogManager* GetJavaScriptDialogManager(
+      content::WebContents* contents) override;
   void ActivateContents(content::WebContents* contents) override;
   void DeactivateContents(content::WebContents* contents) override;
   bool CanOverscrollContent() const override;

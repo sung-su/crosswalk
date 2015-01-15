@@ -31,8 +31,8 @@ class XWalkWebContentsDelegate
   void RunFileChooser(
       content::WebContents* web_contents,
       const content::FileChooserParams& params) override;
-  content::JavaScriptDialogManager*
-      GetJavaScriptDialogManager() override;
+  content::JavaScriptDialogManager* GetJavaScriptDialogManager(
+      content::WebContents* web_contents) override;
 
   void RequestMediaAccessPermission(
       content::WebContents* web_contents,

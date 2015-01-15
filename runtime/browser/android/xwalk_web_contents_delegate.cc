@@ -131,7 +131,7 @@ void XWalkWebContentsDelegate::RunFileChooser(
 }
 
 content::JavaScriptDialogManager*
-XWalkWebContentsDelegate::GetJavaScriptDialogManager() {
+XWalkWebContentsDelegate::GetJavaScriptDialogManager(WebContents* source) {
   if (!javascript_dialog_manager_.get()) {
     javascript_dialog_manager_.reset(new RuntimeJavaScriptDialogManager);
   }
