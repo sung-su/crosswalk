@@ -135,7 +135,6 @@ def CopyBinaries(out_dir, out_project_dir, src_package):
   # Copy jar files to libs.
   if src_package:
     libs_to_copy = [
-        'eyesfree_java.jar',
         'jsr_305_javalib.jar',
     ]
   else:
