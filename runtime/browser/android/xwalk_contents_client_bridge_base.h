@@ -66,6 +66,7 @@ class XWalkContentsClientBridgeBase {
       = 0;
   virtual void ShowNotification(
       const content::PlatformNotificationData& notification_data,
+      const SkBitmap& icon,
       scoped_ptr<content::DesktopNotificationDelegate> delegate,
       base::Closure* cancel_callback)
       = 0;

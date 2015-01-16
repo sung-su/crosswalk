@@ -16,8 +16,6 @@
 #include "content/public/browser/child_process_data.h"
 #include "content/public/browser/render_frame_host.h"
 #include "content/public/browser/render_process_host.h"
-#include "content/public/browser/render_widget_host.h"
-#include "content/public/browser/render_widget_host_iterator.h"
 #include "content/public/browser/resource_context.h"
 #include "content/public/browser/resource_dispatcher_host.h"
 #include "content/public/browser/storage_partition.h"
@@ -36,6 +34,7 @@
 #include "xwalk/runtime/browser/speech/speech_recognition_manager_delegate.h"
 #include "xwalk/runtime/browser/xwalk_browser_context.h"
 #include "xwalk/runtime/browser/xwalk_browser_main_parts.h"
+#include "xwalk/runtime/browser/xwalk_platform_notification_service.h"
 #include "xwalk/runtime/browser/xwalk_render_message_filter.h"
 #include "xwalk/runtime/browser/xwalk_runner.h"
 #include "xwalk/runtime/common/xwalk_paths.h"
@@ -271,43 +270,9 @@ void XWalkContentBrowserClient::AllowCertificateError(
 #endif
 }
 
-blink::WebNotificationPermission
-XWalkContentBrowserClient::CheckDesktopNotificationPermission(
-    const GURL& source_url,
-    content::ResourceContext* context,
-    int render_process_id) {
-#if defined(OS_ANDROID)
-  return blink::WebNotificationPermissionAllowed;
-#else
-  return blink::WebNotificationPermissionDenied;
-#endif
-}
-
-void XWalkContentBrowserClient::ShowDesktopNotification(
-    const content::ShowDesktopNotificationHostMsgParams& params,
-    content::BrowserContext* browser_context,
-    int render_process_id,
-    scoped_ptr<content::DesktopNotificationDelegate> delegate,
-    base::Closure* cancel_callback) {
-#if defined(OS_ANDROID)
-  scoped_ptr<content::RenderWidgetHostIterator> widgets(
-      content::RenderWidgetHost::GetRenderWidgetHosts());
-  while (content::RenderWidgetHost* rwh = widgets->GetNextHost()) {
-    if (!rwh->GetProcess() || rwh->GetProcess()->GetID() != render_process_id)
-      continue;
-    content::RenderViewHost* rvh = content::RenderViewHost::From(rwh);
-    if (!rvh)
-      continue;
-    content::WebContents* web_contents =
-        content::WebContents::FromRenderViewHost(rvh);
-    if (!web_contents)
-      continue;
-    XWalkContentsClientBridgeBase* bridge =
-        XWalkContentsClientBridgeBase::FromWebContents(web_contents);
-    bridge->ShowNotification(params, delegate.Pass(), cancel_callback);
-    return;
-  }
-#endif
+content::PlatformNotificationService*
+XWalkContentBrowserClient::GetPlatformNotificationService() {
+  return XWalkPlatformNotificationService::GetInstance();
 }
 
 void XWalkContentBrowserClient::RequestPermission(

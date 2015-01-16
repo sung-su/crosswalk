@@ -219,6 +219,7 @@ static void CancelNotification(
 
 void XWalkContentsClientBridge::ShowNotification(
     const content::PlatformNotificationData& notification_data,
+    const SkBitmap& icon,
     scoped_ptr<content::DesktopNotificationDelegate> delegate,
     base::Closure* cancel_callback) {
   DCHECK(BrowserThread::CurrentlyOn(BrowserThread::UI));
@@ -233,10 +234,10 @@ void XWalkContentsClientBridge::ShowNotification(
   ScopedJavaLocalRef<jstring> jbody(
     ConvertUTF16ToJavaString(env, notification_data.body));
   ScopedJavaLocalRef<jstring> jreplace_id(
-    ConvertUTF16ToJavaString(env, notification_data.replace_id));
+    ConvertUTF16ToJavaString(env, notification_data.tag));
   ScopedJavaLocalRef<jobject> jicon;
-  if (!notification_data.icon.empty())
-    jicon = gfx::ConvertToJavaBitmap(&notification_data.icon);
+  if (!icon.empty())
+     jicon = gfx::ConvertToJavaBitmap(&icon);
 
   int notification_id = g_next_notification_id_++;
   g_notification_map_.set(notification_id, delegate.Pass());

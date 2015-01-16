@@ -94,17 +94,9 @@ class XWalkContentBrowserClient : public content::ContentBrowserClient {
   content::SpeechRecognitionManagerDelegate*
       CreateSpeechRecognitionManagerDelegate() override;
 
-  blink::WebNotificationPermission
-  CheckDesktopNotificationPermission(
-      const GURL& source_url,
-      content::ResourceContext* context,
-      int render_process_id) override;
-  void ShowDesktopNotification(
-      const content::ShowDesktopNotificationHostMsgParams& params,
-      content::BrowserContext* browser_context,
-      int render_process_id,
-      scoped_ptr<content::DesktopNotificationDelegate> delegate,
-      base::Closure* cancel_callback) override;
+  content::PlatformNotificationService* GetPlatformNotificationService()
+      override;
+
   void RequestPermission(
       content::PermissionType permission,
       content::WebContents* web_contents,
