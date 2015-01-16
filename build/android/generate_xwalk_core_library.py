@@ -105,6 +105,8 @@ def CopyBinaries(out_dir, out_project_dir, src_package):
 
   paks_to_copy = [
       'icudtl.dat',
+      'natives_blob.bin',
+      'snapshot_blob.bin',
       'xwalk.pak',
   ]
 
