@@ -345,9 +345,6 @@
           ],
         }],
         ['OS=="win"', {
-          'resource_include_dirs': [
-            '<(SHARED_INTERMEDIATE_DIR)/webkit',
-          ],
           'configurations': {
             'Debug_Base': {
               'msvs_settings': {
@@ -540,7 +537,7 @@
             [ 'OS!="android"', {
               'variables': {
                 'pak_inputs+': [
-                  '<(SHARED_INTERMEDIATE_DIR)/webkit/devtools_resources.pak',
+                  '<(SHARED_INTERMEDIATE_DIR)/blink/devtools_resources.pak',
                 ],
               },
             }],
