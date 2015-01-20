@@ -163,7 +163,7 @@ if [ -n "${BUILDDIR_NAME}" ]; then
 fi
 
 %if %{with wayland}
-GYP_EXTRA_FLAGS="${GYP_EXTRA_FLAGS} -Duse_ozone=1"
+GYP_EXTRA_FLAGS="${GYP_EXTRA_FLAGS} -Duse_ozone=1 -Duse_xkbcommon=1"
 %endif
 
 GYP_EXTRA_FLAGS="${GYP_EXTRA_FLAGS} -Ddisable_nacl=%{_disable_nacl}"
