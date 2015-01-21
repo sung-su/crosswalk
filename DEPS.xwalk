@@ -17,9 +17,9 @@
 # Edit these when rolling DEPS.xwalk.
 # -----------------------------------
 
-chromium_crosswalk_rev = 'b0014cac2cb962837592c244bdcf63de1317c19a'
+chromium_crosswalk_rev = 'cddd001995de1f4d18716ebcf79870e34a89c3e0'
 v8_crosswalk_rev = '09ce0c4b58447a99dc45c6151ffa26a39eb99546'
-ozone_wayland_rev = 'c04e0d91c568590a91b84a567476763a67da7f55'
+ozone_wayland_rev = '9ceb1e00d6f99592b7322f467987033e5dfbea09'
 
 # |blink_crosswalk_rev| specifies the SHA1 hash of the blink-crosswalk commit
 # we want to point to, very much like the variables above.
